@@ -1,0 +1,305 @@
+3 * 4
+2^8
+sqrt(2)
+cos(2 * pi)
+factorial(8)
+choose(5,2)
+x <- 2
+x
+v <- c(1,2,3)
+v
+v[1]
+v[2]
+v[3]
+length(v)
+mean(v)
+y <- mean(v)
+?mean
+x <- 1:7
+y <- seq(1,13,3)
+z <- rep(1,5)
+v[1:2]
+y[c(2,5)] 
+y + z
+y * z 
+c(“hello”,”world”)
+c(h,e,l,l,o)
+c(“h”,”e”,”l”,”l”,”o”)
+v <- seq(1,101,4)
+mean(v)
+length(v)
+mean(v[c(21,22,23,24)])
+M <- matrix(c(1,2,3,4,5,6),nrow=2,ncol=3)
+M <- matrix(c(1,2,3,4,5,6),nrow=2,byrow=T)
+M <- rbind(c(1,2,3),c(4,5,6))
+M[,2]
+N <- matrix(nrow=3,ncol=2)
+N
+N[1,1] <- 5
+N[1,2] <- 4
+N[2,1] <- 3
+N[2,2] <- 0
+N[3,1] <- -1
+N[3,2] <- -2
+X <- 2*M
+Y <- X + M
+Z <- N * M 
+Z <- N %*% M 
+dim(N)
+dim(M)
+t(M) # transpose
+N * t(M)
+v <- 1:3
+V <- as.matrix(v)
+A <- matrix(c(1,1,-1,1),nrow=2,ncol=2)
+b <- c(2,4)
+x <- solve(A,b)
+A <- matrix(c(4,1,6,3),nrow=2,byrow=T)
+eigen(A)
+I <- diag(3)
+B <- matrix(c(2,7,-1,6,5,12,7,0,-8),nrow=3,byrow=T)
+Bi <- solve(B,I)
+B %*% Bi
+Bi %*% B
+A <- matrix(c(1,1,-1,2,1,1,3,2,-1),nrow=3,byrow=T)
+b <- c(3,-1,7)
+x <- solve(A,b)
+list(1,2,3,”hello”,sqrt)
+j <- list(name=“Bob”,age=45,employed=T)
+names(j)
+j$name
+j$age
+j$employed
+length(j)
+name <- c(“Alice,”Bob”,”Chris”,”Dan”,”Erica”,”Florence”)
+age <- c(23,45,38,48,23,65)
+employed <- c(F,T,F,T,T,T)
+employment <- data.frame(name,age,employed)
+employment
+employment$age
+employment[1,]
+employment[employment$employed==F,]
+employment[employment$age>40,]
+employment[(employment$age<30)&(employment$employed==F),]
+employment.unemp <- employment[(employment$ages<40)&(employment$employed==F),]
+employment <- read.table("employment.dat",header=TRUE)
+employment
+employment$age
+employment[1,]
+raindays <- read.table("rain.dat",header=TRUE)
+raindays
+raindays[1:10,]
+names(raindays)
+total <- raindays$JAN + raindays$FEB + raindays$MAR + …
+total
+totalframe <- data.frame(raindays$YEAR,total)
+write.table(totalframe,”totalrain.dat”,col.names = F, row.names = F)
+raindays$ANN
+all.equal(total,raindays$ANN)
+raindays$JAN
+mean(raindays$JAN)
+median(raindays$JAN)
+min(raindays$JAN)
+max(raindays$JAN)
+sd(raindays$JAN)
+mean(raindays$JUL)
+median(raindays$JUL)
+min(raindays$JUL)
+max(raindays$JUL)
+sd(raindays$JUL)
+raindays[raindays$JAN==min(raindays$JAN),]
+summary(raindays$JAN)
+summary(raindays)
+hist(raindays$JAN)
+hist(raindays$JUL)
+max(raindays$JUL)
+hist(raindays$JUL,breaks=22)
+boxplot(raindays$JAN,raindays$FEB,raindays$MAR,raindays$APR,data=raindays)
+weather <- read.csv(“summer2014.csv",header=T)
+mean(weather$HI)
+weather[weather$MONTH=="JUL", ]
+weather[weather$MONTH=="JUL", ]$LO
+sd(weather[weather$MONTH=="JUL", ]$LO)
+sd(weather[weather$MONTH==“JUL”, ]$HI)
+hist(weather[weather$MONTH==“JUL”, ]$HI)
+weather$PREC
+weather2 <- weather
+weather2[weather2$PREC=="T",]$PREC
+weather2[weather2$PREC=="T",]$PREC <- "0"
+weather2[weather2$PREC=="T",]$PREC 
+weather2$PREC <- as.numeric(weather$PREC)
+weather2$PREC
+weather$PREC <- as.character(weather$PREC)
+weather$PREC
+weather$PREC <- as.numeric(weather$PREC)
+weather$PREC
+mean(weather$PREC)
+mean(weather$PREC,na.rm=T)
+weather$PREC[is.na(weather$PREC)] <- 0.01
+weather$PREC
+mean(weather$PREC)
+weather <- read.csv("winter2015.csv",header=T)
+weather$SNW <- as.character(weather$SNW)
+weather$SNW
+weather[weather$SNW=="T",]$SNW <- "0"
+weather$SNW <- as.numeric(weather$SNW)
+weather$SNW
+mean(weather$SNW)
+mean(weather$SNW,na.rm=T)
+sum(weather$SNW)
+sum(weather$SNW,na.rm=T)
+v <- c(1,3,5,7,9,12)
+summary(v)
+results <- c(2.0,0.4,0.7,2.0,-0.4,2.2,-1.3,1.2,1.1,2.3)
+t.test(results)
+t.test(results, alternative="greater")
+t.test(results, alternative="greater", conf.level=0.99)
+control <- c(97, 54, 78, 99, 88, 77, 90, 87)
+experimental <- c(100, 88, 91, 78, 87, 90, 82, 61)
+t.test(control, experimental)
+bp <- c(128,118,144,133,132,111,149,139,136,126,127,115,142,140,131,132,122,119,129,128)
+t.test(bp, mu=120)
+x <- seq(-4, 4, 0.01)
+plot(dnorm(x, 0, 1))
+plot(pnorm(x, 0, 1))
+rnorm(1000,0,1)
+runif(1000,0,1)
+x <- seq(0, 4, 0.01)
+plot(dlnorm(x, 0, 1))
+x <- rnorm(50)
+y <- runif(30)
+ks.test(x,y)
+x <- rnorm(50)
+y <- rnorm(30)
+ks.test(x,y)
+input <- c(5.0,10.0,20.0,30.0,40.0,50.0)
+signal <- c(25.1,52.0,99.7,152.3,197.3,253.6)
+lm(formula <- signal~input)
+fit <- lm(signal ~ input)
+fit
+residuals(fit)
+summary(fit)
+plot(input, signal)
+abline(fit)
+hypotenuse <- function(x,y)
+{ 
+  sqrt(x^2 + y^2) 
+}
+hypotenuse(3,4)
+function in interactive mode
+f <- function(x)
++ {
++   y <- 1
++   g <- function(x)
++     {
++        (x + y) / 2
++     }
++   g(x)
++ }
+f(2)
+g(2)
+y
+source(“myfunction.r”)
+x <- 4
+if (x > 2) message(“x is greater than 2”)
+x <- 2
+if (x > 2) message(“x is greater than 2”)
+if (x > 2) message("x is greater than 2") else message("x is not greater than 2")
+if (x > 2) 
+{
+  message(“x is greater than 2”)
+} else
+{
+  message(“x is not greater than 2”)
+}
+for (i in 1:4)
+{
+  message(“i = “ i)
+} 
+for (i in 1:4) message(“i = “ i)
+for (i in seq(1,13,3)) message("i is ", i)
+i <- 1
+while(i < 10)
+{
+  j <- i + 1
+  message(“j is “, j)
+  i <- i + 1
+}
+source(“max.r”)
+find.max(c(1,2,3,7,4))
+a <- 1:7
+sapply(a, sqrt)
+sapply(a, function(x) 2^x)
+weather
+weather$PREC
+sapply(weather$PREC, function(x) x*2.54)
+weather.metric <- weather
+weather.metric$PREC <- sapply(weather$PREC, function(x) x*2.54)
+weather.metric
+weather.metric$HI <- sapply(weather$HI, function(x) (x - 32)/1.8)
+weather.metric$LO <- sapply(weather$LO, function(x) (x - 32)/1.8)
+weather.metric$AVG <- sapply(weather$AVG, FtoC)
+library(class)
+restaurants <- read.csv("restaurants.csv",header=T)
+restaurants
+n <- 100
+sample_rate <- 0.8
+ntest <- n * (1 - sample_rate)
+ntest
+training_rows <- sample(1:n, sample_rate * n, replace=F)
+training_rows
+train <- subset(restaurants[training_rows, ], select = c(price, visitors))
+train
+testing_rows <- setdiff(1:n, training_rows)
+testing_rows
+test <- subset(restaurants[testing_rows, ], select = c(price, visitors))
+restaurants[testing_rows, ]
+restaurants[training_rows, ]$stars
+true_stars <- restaurants[testing_rows, ]$stars
+train_stars <- restaurants[training_rows, ]$stars
+predicted_stars <- knn(train,test,train_stars,k=3)
+predicted_stars
+num_incorrect <- sum(predicted_stars != true_stars)
+num_incorrect
+misclassification_rate <- num_incorrect / ntest
+misclassification_rate
+predicted_stars <- knn(train,test,train_stars,k=5)
+num_incorrect <- sum(predicted_stars != true_stars)
+misclassification_rate <- num_incorrect / ntest
+misclassification_rate
+trial <- c(27,500)
+knn(train,trial,train_stars,k=5)
+A <- matrix(rnorm(100, mean=0, sd=0.1), ncol=2)
+B <- matrix(rnorm(100, mean=1, sd=0.2), ncol=2)
+pairs <- rbind(A,B)
+plot(pairs)
+fit <- kmeans(pairs, 2)
+fit
+C <- matrix(rnorm(100, mean=0, sd=0.4), ncol=2)
+D <- matrix(rnorm(100, mean=1, sd=0.4), ncol=2)
+pairs2 <- rbind(C,D)
+plot(pairs2)
+fit2 <- kmeans(pairs2, 2)
+fit2
+fit3 <- kmeans(pairs2, 10)
+fit3
+a <- 2
+typeof(a)
+.Machine
+ls()
+v <- c(1,2)
+object.size(v)
+rm(list=ls())
+R.home(“library”)
+View(installed.packages())
+.libPaths()
+install.packages(“gmp”)
+library(gmp)
+factorize(31051183109621801)
+library(parallel)
+a <- 1:10
+sapply(a, function(x) x^2)
+lapply(a, function(x) x^2)
+mclapply(a, function(x) x^2, mc.cores=2)
+a <- 1:10000000
+result <- mclapply(a, function(x) 3*cos(x)*x^2, mc.cores=2)
